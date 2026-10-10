@@ -1,7 +1,5 @@
-/* Reset básico */
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
 
-/* Reset básico */
 * {
     margin: 0;
     padding: 0;
@@ -87,10 +85,7 @@ header.scrolled {
     text-align: center;
     padding: 6em 1.5em 3em;
     /* gradiente por cima da imagem; se a imagem não existir, só o gradiente aparece */
-    background:
-        linear-gradient(to right, rgba(58, 102, 255, 0.85), rgba(122, 51, 204, 0.85)),
-        url('../images/hero.jpg') center / cover no-repeat,
-        linear-gradient(to right, #3A66FF, #7A33CC);
+    background: linear-gradient(to right, #3A66FF, #7A33CC);
 }
 
 .hero-content h1 {
