@@ -85,7 +85,7 @@ header.scrolled {
     text-align: center;
     padding: 21em 1.5em 3em;
     /* gradiente por cima da imagem; se a imagem não existir, só o gradiente aparece */
-    background: linear-gradient(to right, #3A66FF, #7A33CC);
+    background: linear-gradient(130deg, #3A66FF 0%, #7A33CC 95%);
 }
 
 .hero-content h1 {
@@ -107,6 +107,7 @@ header.scrolled {
 
 .hr-1 {
     min-width: 100rem;
+
 }
 
 .btn-hero {
@@ -122,6 +123,64 @@ header.scrolled {
 .btn-hero:hover {
     background: #fff;
     color: #3A66FF;
+}
+
+
+.temas {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.6em 15em;
+}
+.temas img {
+    width: 100px;
+}
+
+
+.box {
+    min-height: calc(100vh - 8vh); /* desconta a altura do nav */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 40px;
+    padding: 60px 20px;
+}
+
+.sobre-box {
+    min-height: 50vh;
+    max-height: 50vh;
+    width: 420px;
+    padding: 40px;
+    background: var(--card-bg);
+    border-radius: 30px;
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 40px 100px rgba(0, 0, 0, 0.5);
+    transition: transform 0.4s ease, border-color 0.4s ease;
+}
+
+.sobre-box:hover {
+    transform: translateY(-10px) rotateX(5deg);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.title {
+    color: #fff;
+    font-size: 26px;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 40px;
+    background: linear-gradient(to right, #fff,  #888);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.text-box {
+    color: #fff;
+    font-size: larger;
 }
 
 /* ---------- Hambúrguer (escondido no desktop) ---------- */

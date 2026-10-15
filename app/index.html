@@ -11,7 +11,7 @@
     <!-- Header (transparente, sobre o hero) -->
     <header id="header">
         <div class="logo">
-            <a href="#"><img src="images/scrum-logo-gradient.png" alt="SCRUM"></a>
+            <a href="#hero-section" id="hero"><img src="images/scrum-logo-gradient.png" alt="SCRUM"></a>
         </div>
 
         <button class="hamburger" id="hamburger" aria-label="Abrir menu" aria-expanded="false">
@@ -22,8 +22,8 @@
 
         <nav class="nav-bar" id="nav">
             <ul>
-                <li><a href="#">Início</a></li>
-                <li><a id="temas">Temas</a></li>
+                <li><a href="#hero-section" id="hero">Início</a></li>
+                <li><a href="#sobre-section" id="sobre">Sobre</a></li>
                 <li><a href="certificados.html">Certificados</a></li>
             </ul>
         </nav>
@@ -34,17 +34,70 @@
     </header>
 
     <!-- Hero -->
-    <section class="hero">
+    <section class="hero" id="hero-section">
         <div class="hero-content">
             <h1>Aprenda SCRUM</h1>
             <p>Aprenda com performance!</p>
             <a href="acesso.html" class="btn-hero">Inscreva-se</a>
 
             <h3 class="hero-sub">Role para mais!</h3>
-            <hr class="hr-1">
+
         </div>
     </section>
 
+<hr class="hr-1">
+
+    <section class="box" id="sobre-section">
+
+    <!--Box 1-->
+
+     <div class="sobre-box">
+        <div class="title"> Certificação </div>
+
+            <div class="bar">
+                <div class="info">
+                <span class="text-box"> A certificação permite que você comprove que realizou o curso, obteve conhecimento e está apto para seguir carreira com mais um diferencial em seu currículo! <p></p>  <br>
+                        No final do curso, será disponibilizado para você um certificado com seu nome, CPF, data de finalização do curso e porcentagem total obtida na avaliação! <p></p> <br>
+                    Para verificar a autenticidade do certificado, pode-se usar o celular para ler o QR Code</span>
+                </div>
+            </div>            
+        </div>
+     </div>
+
+     <!--Box 2-->
+
+     <div class="sobre-box">
+        <div class="title"> Objetivos </div>
+
+            <div class="bar">
+                <div class="info">
+                <span class="text-box"> O objetivo deste curso é integrar ao conhecimento do usuário, um modelo de planejamento para melhorar a organização, velocidade de desenvolvimento, senso de prioridades, melhoria no trabalho em equipe. <br>
+                        </span>
+                </div>
+            </div>            
+        </div>
+     </div>
+
+    <!--Box 3-->
+
+<div class="sobre-box">
+        <div class="title"> Avaliação </div>
+
+            <div class="bar">
+                <div class="info">
+                <span class="text-box"> A Avaliação ocorre com base na apostila disponível para leitura gratuita neste site. <p></p><br>
+                        Serão no total de 14 temas sobre SCRUM, onde cada pergunta será sorteada aleatóriamente.</span>
+                </div>
+            </div>            
+        </div>
+     </div>
+
+        <!-- adicione mais .bar aqui se quiser -->
+
+     </div>
+    </section>
+
+<hr class="hr-1">
 
     <script src="js/index.js"></script>
 </body>
