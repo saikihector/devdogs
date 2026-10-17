@@ -31,3 +31,16 @@ window.addEventListener('scroll', () => {
         studentsText.style.opacity = Math.max(opacityStudents, 0);
     }
 });
+
+// Efeito de rolagem suave ao clicar no botão
+
+document.querySelectorAll('a[href^="#"]').forEach(link => {
+    link.addEventListener('click', (e) => {
+        const alvo = document.querySelector(link.getAttribute('href'));
+        if (!alvo) return;
+
+        e.preventDefault();
+        alvo.scrollIntoView({ behavior: 'smooth' });
+
+    });
+});
