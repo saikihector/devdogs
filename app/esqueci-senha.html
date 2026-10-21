@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Acessar Conta SCRUM</title>
+    <title>Metodologia Ágil</title>
     <link rel="stylesheet" href="css/esqueci-senha.css"/>
-    <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
 </head>
 <body>
     <div class="container" id="container">
@@ -14,12 +13,19 @@
 
         <div class="form-container">
             <form id="forgotform" method="post">
-                <h1>Redefinir Senha</h1>
+                
+                <h1 class="title">Esqueci minha senha</h1>
+
                 <input type="email" name="email" placeholder="Email" required>
+
+                <input type="text" name="codigo" placeholder="Código de verificação" required>
+
+                <input type="password" name="senha" placeholder="Digite sua nova senha novamente" required>
+
                 <button type="submit">Redefinir</button>
             </form>
         </div>
-                <a href="acesso.html"><button class="voltar">Voltar</button></a>     
+                <a href="acesso.html" class="button-voltar"><img src="/images/seta-voltar.png" class="icone-voltar">Voltar</a>
     </div>
     <script src="js/esqueci-senha.js"></script>
 </body>

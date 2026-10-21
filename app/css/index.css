@@ -13,6 +13,12 @@ body {
     background: #0f172a;
 }
 
+.logo img {
+    position: relative;
+    height: 100px;
+    width: 220px;
+}
+
 /* ---------- Header transparente ---------- */
 header {
     position: fixed;          /* fica por cima do hero */
@@ -77,6 +83,102 @@ header.scrolled {
 }
 
 /* ---------- Hero ---------- */
+/* Section 01 */
+
+.hero {
+    min-height: 50vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 21em 1.5em 3em;
+    /* gradiente por cima da imagem; se a imagem não existir, só o gradiente aparece */
+    background: linear-gradient(130deg, #3A66FF 0%, #7A33CC 95%);
+}
+
+.hero-content h1 {
+    color: #fff;
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    font-weight: 600;
+}
+
+.hero-content p {
+    color: #fff;
+    font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+    margin: 0.8em 0 1.6em;
+}
+
+.hero-sub {
+    color: #fff;
+    padding: 20rem 0rem 1rem;
+}
+
+.hr-1 {
+    min-width: 100rem;
+
+}
+
+.btn-hero {
+    display: inline-block;
+    color: #fff;
+    font-size: 1.2rem;
+    padding: 14px 44px;
+    border: 2px solid #fff;
+    border-radius: 50px;
+    transition: 0.4s;
+}
+
+.btn-hero:hover {
+    background: #fff;
+    color: #3A66FF;
+}
+
+/* Section 02 */
+
+.box {
+    min-height: calc(100vh - 8vh); /* desconta a altura do nav */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 40px;
+    padding: 60px 20px;
+}
+
+.sobre-box {
+    min-height: 50vh;
+    max-height: 50vh;
+    width: 420px;
+    padding: 40px;
+    background: var(--card-bg);
+    border-radius: 30px;
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 40px 100px rgba(0, 0, 0, 0.5);
+    transition: transform 0.4s ease, border-color 0.4s ease;
+}
+
+.sobre-box:hover {
+    transform: translateY(-10px) rotateX(5deg);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.title {
+    color: #fff;
+    font-size: 26px;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 40px;
+    background: linear-gradient(to right, #fff,  #888);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.text-box {
+    color: #fff;
+    font-size: larger;
+}
+
 .hero {
     min-height: 50vh;
     display: flex;
@@ -126,61 +228,30 @@ header.scrolled {
 }
 
 
-.temas {
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0.6em 15em;
-}
-.temas img {
-    width: 100px;
-}
+/* Section 03 */
 
-
-.box {
-    min-height: calc(100vh - 8vh); /* desconta a altura do nav */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 40px;
-    padding: 60px 20px;
-}
-
-.sobre-box {
+.estudo {
     min-height: 50vh;
-    max-height: 50vh;
-    width: 420px;
-    padding: 40px;
-    background: var(--card-bg);
-    border-radius: 30px;
-    backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 40px 100px rgba(0, 0, 0, 0.5);
-    transition: transform 0.4s ease, border-color 0.4s ease;
-}
-
-.sobre-box:hover {
-    transform: translateY(-10px) rotateX(5deg);
-    border-color: rgba(255, 255, 255, 0.2);
-}
-
-.title {
-    color: #fff;
-    font-size: 26px;
-    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     text-align: center;
-    margin-bottom: 40px;
-    background: linear-gradient(to right, #fff,  #888);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    padding: 5em 1.5em 3em;
+    /* gradiente por cima da imagem; se a imagem não existir, só o gradiente aparece */
+    background: linear-gradient(130deg, #3A66FF 0%, #7A33CC 95%);
 }
 
-.text-box {
-    color: #fff;
-    font-size: larger;
+
+
+footer {
+    color: #e6e6e6;
+    max-height: 400px;
+    height: 100%;
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+    padding: 1em 0;
+    box-sizing: border-box;
 }
 
 /* ---------- Hambúrguer (escondido no desktop) ---------- */

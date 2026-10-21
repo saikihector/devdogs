@@ -139,7 +139,7 @@ body{
     overflow: hidden;
     transition: all 0.6s ease-in-out;
     border-radius: 150px 0 0 100px;
-    z-index: 1000;
+    z-index: 99;
 }
 
 .container.active .toggle-container{
@@ -192,83 +192,15 @@ body{
     transform: translateX(200%);
 }
 
-
-@media (max-width: 768px){
-    .container{
-        width: 100%;
-        max-width: 480px;
-        min-height: 0;
-        border-radius: 20px;
-        display: flex;
-        flex-direction: column;
-    }
-
-    /* formulários empilhados, sem deslizar */
-    .form-container{
-        position: relative;
-        width: 100%;
-        height: auto;
-        transition: none;
-    }
-
-    .container .sign-in,
-    .container.active .sign-in,
-    .container .sign-up,
-    .container.active .sign-up{
-        transform: none;
-        animation: none;
-    }
-
-    .sign-up{ display: none; opacity: 1; }
-    .container.active .sign-up{ display: block; }
-    .container.active .sign-in{ display: none; }
-
-    .container form{
-        padding: 30px 24px;
-    }
-
-    .container input{
-        font-size: 16px; /* evita o zoom automático do iOS ao focar */
-    }
-
-    /* painel de alternância vira uma faixa embaixo */
-    .toggle-container,
-    .container.active .toggle-container{
-        position: relative;
-        left: 0;
-        width: 100%;
-        height: auto;
-        transform: none;
-        border-radius: 0 0 20px 20px;
-    }
-
-    .toggle,
-    .container.active .toggle{
-        left: 0;
-        width: 100%;
-        height: auto;
-        transform: none;
-    }
-
-    .toggle-panel,
-    .container.active .toggle-panel{
-        position: relative;
-        width: 100%;
-        height: auto;
-        padding: 24px 20px;
-        transform: none;
-    }
-
-    /* mostra só o painel que faz sentido */
-    .toggle-left{ display: none; }
-    .container.active .toggle-left{ display: flex; }
-    .container.active .toggle-right{ display: none; }
-
-    .toggle-panel h1{ font-size: 22px; }
-    .toggle-panel p{ font-size: 14px; margin-top: 6px; }
+.btn-home {
+    position: absolute;
+    z-index: 100;
+    top: 2rem;
+    left: 3rem;
 }
 
-@media (max-width: 360px){
-    .container form{ padding: 24px 16px; }
-    .container button{ padding: 10px 30px; }
+.button-voltar {
+    display: flex;
+    color: #000;
+    text-decoration: none;
 }
