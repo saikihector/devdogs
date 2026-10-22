@@ -24,14 +24,9 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 0.6em 2em;
-    background: transparent;
+    background: linear-gradient(130deg, #3A66FF 60%, #7A33CC);;
     border-bottom: 1px solid rgba(255, 255, 255, 0.3);
     transition: background 0.4s;
-}
-
-/* classe que o JS coloca quando a página rola */
-header.scrolled {
-    background: rgba(15, 23, 42, 0.95);
 }
 
 .logo img {
@@ -154,6 +149,7 @@ header.scrolled {
 }
 
 footer {
+    background: transparent;
     color: #e6e6e6;
     max-height: 400px;
     height: 100%;

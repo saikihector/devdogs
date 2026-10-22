@@ -1,15 +1,3 @@
-// ---------- Header ----------
-var header = document.getElementById("header");
-
-window.addEventListener("scroll", function () {
-    if (window.scrollY > 10) {
-        header.classList.add("scrolled");
-    } else {
-        header.classList.remove("scrolled");
-    }
-});
-
-
 // ---------- Tópicos ----------
 var botoes = document.querySelectorAll(".gatilho");
 var itens = document.querySelectorAll(".item");
