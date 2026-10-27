@@ -18,7 +18,7 @@ O site também conta com certificado ao completar a avaliação e obter um resul
 
 - Menu responsivo com drawer mobile (hambúrguer)
 - Animações de scroll
-- Seções: Hero, Metrics, Sobre, Portifólio (Projetos), Blog (Atualizações), Contato, Footer
+- Seções: Hero, Metrics, Sobre, Footer
 - Formulário para criar conta, entrar na conta e recriar senha esquecida.
 
 ## Estrutura
