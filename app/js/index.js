@@ -14,24 +14,6 @@ window.addEventListener('scroll', () => {
     header.classList.toggle('scrolled', window.scrollY > 50);
 });
 
-
-// Efeito de Opacidade do Scroll
-
-window.addEventListener('scroll', () => {
-    const scrollPosition = window.scrollY;
-    const welcomeTextEl = document.getElementById('welcome-text');
-    const studentsText = document.getElementById('students-text');
-
-    if (welcomeTextEl) {
-        let opacity = 1 - scrollPosition / 500;
-        welcomeTextEl.style.opacity = Math.max(opacity, 0);
-    }
-    if (studentsText) {
-        let opacityStudents = 1 - (scrollPosition - 100) / 500;
-        studentsText.style.opacity = Math.max(opacityStudents, 0);
-    }
-});
-
 // Efeito de rolagem suave ao clicar no botão
 
 document.querySelectorAll('a[href^="#"]').forEach(link => {
