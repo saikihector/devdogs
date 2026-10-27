@@ -24,18 +24,22 @@ O site também conta com certificado ao completar a avaliação e obter um resul
 ## Estrutura
 
 ```
+app
 ├── index.html
-├── index.css
-├── index.js
-├── acesso.html
-├── acesso.css
-├── acesso.js
-├── esqueci-senha.html
-├── esqueci-senha.css
-├── esqueci-senha.js
 ├── tema.html
-├── tema.css
-└── tema.js
+├── acesso.html
+├── esqueci-senha.htmk
+├── css/
+     ├──
+     ├── index.css
+     ├── tema.css
+     ├── acesso.css
+     ├── esqueci-senha.css
+├── js/
+     ├── index.js
+     ├── tema.js
+     ├── acesso.js
+     └── esqueci-senha.js
 ```
 
 ## Rodando localmente
