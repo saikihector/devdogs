@@ -29,17 +29,19 @@ app
 ├── tema.html
 ├── acesso.html
 ├── esqueci-senha.htmk
-├── css/
-     ├──
-     ├── index.css
-     ├── tema.css
-     ├── acesso.css
-     ├── esqueci-senha.css
-├── js/
-     ├── index.js
-     ├── tema.js
-     ├── acesso.js
-     └── esqueci-senha.js
+├── src
+     ├── css/
+          ├──
+          ├── index.css
+          ├── tema.css
+          ├── acesso.css
+          ├── esqueci-senha.css
+     ├── js/
+          ├── index.js
+          ├── tema.js
+          ├── acesso.js
+          ├── sessao.js
+          └── esqueci-senha.js
 ```
 
 ## Rodando localmente
