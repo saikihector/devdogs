@@ -4,7 +4,7 @@
     list-style: none;
     text-decoration: none;
     box-sizing: border-box;
-    font-family: 'Oswald', sans-serif;
+    font-family: 'Plus Jakarta Sans', sans-serif;
 }
 
 body {
@@ -67,6 +67,11 @@ header {
     background: #fff;
     color: #7A33CC;
 }
+.login-container { display: flex; align-items: center; }
+
+.usuario-nome { color: #fff; font-size: 1.2rem; margin-right: 12px; }
+
+button.btnLogin-popup { background: transparent; cursor: pointer; }
 
 /* ---------- Section 01 ---------- */
 .estudo {
@@ -88,6 +93,7 @@ header {
     border-radius: 10px;
     margin-bottom: 6px;
     overflow: hidden;
+    height: auto;
 }
 
 /* o botão com o título do tópico */
@@ -142,10 +148,7 @@ header {
 
 .texto-explicativo p {
     color: #111111;
-    font-size: 1.05rem;
-    font-weight: 500;
-    line-height: 1.9;
-    text-align: justify;
+    font-weight: 600;
 }
 
 
@@ -192,6 +195,15 @@ footer {
 .hamburger.open .line:nth-child(1) { transform: translateY(9px) rotate(45deg); }
 .hamburger.open .line:nth-child(2) { opacity: 0; }
 .hamburger.open .line:nth-child(3) { transform: translateY(-9px) rotate(-45deg); }
+
+/*---------- Desktop ---------- */
+@media (min-width: 1920px) {
+    .estudo {
+        min-height: 100vh;
+        padding: 12rem 1.5em 3em;
+    }
+}
+
 
 /* ---------- Mobile ---------- */
 @media (max-width: 800px) {
