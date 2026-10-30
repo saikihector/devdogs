@@ -16,7 +16,6 @@ O site também conta com certificado ao completar a avaliação e obter um resul
 
 ## Funcionalidades
 
-- Menu responsivo com drawer mobile (hambúrguer)
 - Animações de scroll
 - Seções: Hero, Metrics, Sobre, Footer
 - Formulário para criar conta, entrar na conta e recriar senha esquecida.
@@ -41,9 +40,21 @@ app
           ├── tema.js
           ├── acesso.js
           ├── sessao.js
-          └── esqueci-senha.js
+          ├── esqueci-senha.js
+     ├── images/
+          ├── icons/
+               ├── cpf-icon.svg
+               ├── user-icon.svg
+               ├── mail-icon.svg
+               ├── lock-icon.svg
+          ├── logo/
+               └── dogschool-logo.svg
 ```
 
 ## Rodando localmente
 
 Não há dependências — basta abrir o `index.html` no navegador, ou usar uma extensão tipo Live Server no VS Code.
+
+## Rodando online
+
+Acesse: [DogSchool](scrum-chi.vercel.app)
