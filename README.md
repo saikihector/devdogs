@@ -57,4 +57,4 @@ Não há dependências — basta abrir o `index.html` no navegador, ou usar uma 
 
 ## Rodando online
 
-Acesse: [DogSchool](scrum-chi.vercel.app)
+Acesse: [DogSchool](https://scrum-chi.vercel.app)
