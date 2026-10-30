@@ -34,19 +34,19 @@ app
           ├── index.css
           ├── tema.css
           ├── acesso.css
-          ├── esqueci-senha.css
+          └── esqueci-senha.css
      ├── js/
           ├── index.js
           ├── tema.js
           ├── acesso.js
           ├── sessao.js
-          ├── esqueci-senha.js
+          └── esqueci-senha.js
      ├── images/
           ├── icons/
                ├── cpf-icon.svg
                ├── user-icon.svg
                ├── mail-icon.svg
-               ├── lock-icon.svg
+               └── lock-icon.svg
           ├── logo/
                └── dogschool-logo.svg
 ```
