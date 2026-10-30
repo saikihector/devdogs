@@ -28,7 +28,7 @@ app
 ├── tema.html
 ├── acesso.html
 ├── esqueci-senha.html
-├── src
+├── src/
      ├── css/
           ├──
           ├── index.css
