@@ -27,7 +27,7 @@ app
 ├── index.html
 ├── tema.html
 ├── acesso.html
-├── esqueci-senha.htmk
+├── esqueci-senha.html
 ├── src
      ├── css/
           ├──
