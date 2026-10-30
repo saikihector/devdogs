@@ -23,7 +23,7 @@ O site também conta com certificado ao completar a avaliação e obter um resul
 ## Estrutura
 
 ```
-app
+app/
 ├── index.html
 ├── tema.html
 ├── acesso.html
