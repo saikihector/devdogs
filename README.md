@@ -43,12 +43,17 @@ app/
           └── esqueci-senha.js
      ├── images/
           ├── icons/
+               ├── arrow-icon.svg
                ├── cpf-icon.svg
                ├── user-icon.svg
                ├── mail-icon.svg
                └── lock-icon.svg
           ├── logo/
+               ├── dogschool-logo-no-background
                └── dogschool-logo.svg
+          ├── objetos/
+               ├── circulo.svg
+               └── pontos.svg
 ```
 
 ## Rodando localmente
