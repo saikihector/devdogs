@@ -19,8 +19,6 @@
 --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-
-
 body {
     background: var(--color-background);
 }
@@ -29,7 +27,7 @@ body {
     position: relative;
     font-size: 2.5rem;
     font-weight: 700;
-    padding: 0.3em 3em;
+    padding: 0.3em clamp(0.5em, calc(16.4vw - 180px), 3em);
 }
 
 .title-primary {
@@ -124,7 +122,7 @@ header.scrolled {
 }
 
 .login-container { 
-    padding: 0 10rem;
+    padding: 0 clamp(1rem, calc(21.9vw - 240px), 10rem);
     display: flex; 
     align-items: center; 
 
@@ -145,47 +143,166 @@ button.btnLogin-popup {
 /* Section 01 */
 
 .hero {
-    min-height: 50vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 21em 1.5em 3em;
+    position: relative;
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: minmax(0, 0.95fr) minmax(0, 1fr);
+    grid-template-areas:
+        "texto arte"
+        "botoes arte";
+    align-content: center;
+    column-gap: clamp(2rem, 5vw, 6rem);
+    padding: 8rem clamp(1.5rem, 9vw, 12rem) 4rem;
+    text-align: left;
     background: var(--color-background);
 }
 
 .hero-content {
-    margin-left: -35rem;
+    grid-area: texto;
+    align-self: end;
 }
 
 .hero-content h1 {
     color: var(--color-text);
-    font-size: clamp(6rem, 2vw, 8rem);
+    font-size: clamp(2.6rem, 5.2vw, 6rem);
     font-weight: 800;
-    margin-bottom: 3.5rem;
+    line-height: 1.05;
     text-align: left;
-    margin-left: -26rem;
-    margin-top: -5rem;
 }
 
 .hero-content h1.hero-text-second {
     color: var(--color-primary);
-    font-size: clamp(7rem, 4vw, 8rem);
-    font-weight: 800;
+    font-size: clamp(3rem, 6.1vw, 7rem);
 }
 
 .hero-content p.hero-text-sub {
     color: var(--color-text);
-    font-size: 1.5rem;
+    font-size: clamp(1rem, 1.3vw, 1.5rem);
     font-weight: 800;
-    margin-bottom: 28.5rem;
-    margin-left: -36rem;
-    margin-top: -3rem;
+    text-align: left;
+    margin-top: 1.4rem;
+}
+
+/* Botões do hero: Inscreva-se e Saiba mais */
+
+.hero-buttons {
+    grid-area: botoes;
+    align-self: start;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1rem 1.8rem;
+    margin-top: clamp(1.8rem, 3vw, 3rem);
+}
+
+.btn-inscricao,
+.btn-saiba {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.7rem;
+    font-size: 1.15rem;
+    font-weight: 600;
+    padding: 1.2rem 3.2rem;
+    border-radius: 50px;
+    white-space: nowrap;
+    transition: var(--transition);
+}
+
+/* Inscreva-se: botão preenchido */
+.btn-inscricao {
+    background: var(--color-primary);
+    color: #fff;
+    border: 2px solid var(--color-primary);
+    box-shadow: 0 10px 24px rgba(58, 102, 255, 0.28);
+}
+
+.btn-inscricao-icon {
+    width: 1.25rem;
+    height: 1.25rem;
+    flex-shrink: 0;
+    transition: var(--transition);
+}
+
+.btn-inscricao:hover {
+    background: #2b52e0;
+    border-color: #2b52e0;
+    transform: translateY(-2px);
+    box-shadow: 0 14px 30px rgba(58, 102, 255, 0.38);
+}
+
+.btn-inscricao:hover .btn-inscricao-icon {
+    transform: translateX(4px);
+}
+
+/* Saiba mais: botão com contorno */
+.btn-saiba {
+    background: var(--color-surface);
+    color: var(--color-text);
+    border: 2px solid #DAD8EA;
+}
+
+.btn-saiba:hover {
+    border-color: var(--color-secondary);
+    color: var(--color-secondary);
+    transform: translateY(-2px);
+}
+
+/* Arte do hero: logo + círculo + arco + pontos + onda */
+.hero {
+    overflow: hidden;
+}
+
+.hero-art {
+    grid-area: arte;
+    position: relative;
+    justify-self: start;
+    align-self: center;
+    width: min(86%, 600px);
+    aspect-ratio: 1;
+    pointer-events: none;
+    user-select: none;
+}
+
+.hero-art img {
+    position: absolute;
+}
+
+.hero-logo {
+    inset: 0;
+    width: 116%;
+    height: 116%;
+    top: -8%;
+    margin-right: 8%;
+}
+
+.art-circle {
+    inset: -8%;
+    width: 116%;
+    height: 90%;
+    top: 4%;
+    left: 0;
+}
+
+.art-dots {
+    right: -25%;
+    top: 8%;
+    width: 18%;
+}
+
+.hero-wave {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 14vw;
+    min-height: 90px;
+    z-index: 0;
+    pointer-events: none;
 }
 
 .hr-1 {
-    min-width: 100rem;
-
+    width: 100%;
 }
 
 /* Section 02 */
@@ -198,6 +315,7 @@ button.btnLogin-popup {
     flex-wrap: wrap;
     gap: 40px;
     padding: 60px 20px;
+    background: var(--color-background);
 }
 
 .sobre-box {
@@ -223,13 +341,13 @@ button.btnLogin-popup {
     font-weight: 700;
     text-align: center;
     margin-bottom: 40px;
-    background: linear-gradient(to right, #fff,  #888);
+    background: linear-gradient(to right, var(--color-primary), var(--color-secondary));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
 .text-box {
-    color: #fff;
+    color: var(--color-text);
     font-size: larger;
 }
 
@@ -259,7 +377,7 @@ footer {
     display: block;
     width: 30px;
     height: 3px;
-    background: #fff;
+    background: var(--color-text);
     border-radius: 3px;
     transition: 0.3s;
 }
@@ -278,11 +396,6 @@ footer {
 
 /*---------- Desktop ---------- */
 @media (min-width: 1920px) {
-    .hero {
-        min-height: 100vh;
-        padding: 37rem 1.5em 3em;
-    }
-
     .box {
         min-height: calc(100vh - 8vh);
         gap: 80px;
@@ -295,32 +408,221 @@ footer {
     }
 }
 
-/* ---------- Mobile ---------- */
-@media (max-width: 800px) {
-    header { padding: 0.6em 1em; }
+/* ---------- Responsivo ---------- */
 
-    .hamburger { display: flex; }
+/* Notebooks e tablets deitados */
+@media (max-width: 1280px) {
+    /* Remover apenas a barra de rolagem horizontal */
+    body {
+        overflow-x: hidden;
+    }
+    /* Header */
+    header {
+        max-width: 100%;
+        padding: 1rem 0;
+        border-bottom: 0.2rem solid var(--color-secondary);
+    }
+    .logo {
+        font-size: 2.2rem;
+        font-weight: 700;
+        padding: 0.2rem 2rem;
+    }
+    .nav-bar ul {
+        flex-wrap: nowrap;
+    }
+    .nav-bar ul li a {
+        font-size: 1.2rem;
+        padding: 0.5rem 0.8rem;
+        margin: 0;
+    }
+    .nav-bar ul li a::after {
+        left: 0.8rem;
+    }
+    .nav-bar ul li a:hover::after {
+        width: calc(100% - 1.6rem);
+    }
+    /* Hero: botões um pouco menores para caberem lado a lado */
+    .hero-buttons {
+        gap: 1rem 1.2rem;
+    }
+    .btn-inscricao,
+    .btn-saiba {
+        font-size: 1.05rem;
+        padding: 1.05rem 2.2rem;
+    }
+    .login-container { 
+        padding: 0 2rem;
+        display: flex; 
+        align-items: center;
+    }
+    /* Box */
+    .box {
+        flex-wrap: wrap;
+        gap: 24px;
+        padding: 60px 20px;
+    }
+    .sobre-box {
+        min-height: 65vh;
+        max-height: none;
+        width: 380px;
+    }
+    .title {
+        margin-bottom: 10px;
+        background: linear-gradient(to right, var(--color-primary),  var(--color-secondary));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+    .text-box {
+        color: var(--color-text);
+    }
+    footer div p {
+        color: var(--color-text);
+        padding: 1.8rem 0;
+        opacity: 0.25;
+    }
+}
+
+/* Tablets deitados: botões do hero mais compactos */
+@media (max-width: 1100px) {
+    .btn-inscricao,
+    .btn-saiba {
+        font-size: 1rem;
+        padding: 1rem 1.9rem;
+    }
+}
+
+/* Tablets em pé e celulares: menu hambúrguer + hero em uma coluna */
+@media (max-width: 960px) {
+    /* Header */
+    header {
+        padding: 0.8rem 1.5rem;
+    }
+    .logo {
+        font-size: 2rem;
+        padding: 0;
+    }
+    .hamburger {
+        display: flex;
+        order: 3;
+        margin-left: 0.6rem;
+    }
+    .login-container {
+        order: 2;
+        margin-left: auto;
+        padding: 0;
+    }
 
     .nav-bar {
         position: absolute;
         top: 100%;
         left: 0;
         width: 100%;
-        background: rgba(15, 23, 42, 0.95);
+        background: var(--color-secondary);
         max-height: 0;
+        border-bottom-left-radius: 28px;
+        border-bottom-right-radius: 28px;
         overflow: hidden;
         transition: max-height 0.4s;
     }
 
-    .nav-bar.open { max-height: 300px; }
+    .nav-bar.open { max-height: 320px; }
 
     .nav-bar ul {
         flex-direction: column;
         align-items: center;
-        padding: 1em 0;
+        width: 100%;
+        padding: 1rem 0;
     }
 
-    .nav-bar ul li a { display: block; margin: 4px 0; }
+    .nav-bar ul li a {
+        color: var(--color-surface);
+        display: block;
+        margin: 4px 0;
+        padding: 0.5rem 1.2rem;
+    }
 
-    .login-container { display: none; }
+    .nav-bar ul li a::after { display: none; }
+
+    /* Hero */
+    .hero {
+        min-height: auto;
+        grid-template-columns: minmax(0, 1fr);
+        grid-template-areas:
+            "texto"
+            "botoes"
+            "arte";
+        padding: 7.5rem 1.5rem 3rem;
+        text-align: center;
+    }
+    .hero-content h1 {
+        font-size: clamp(2.8rem, 11vw, 5rem);
+        text-align: center;
+    }
+    .hero-content h1.hero-text-second {
+        font-size: clamp(3.2rem, 12.5vw, 5.8rem);
+    }
+    .hero-content p.hero-text-sub {
+        font-size: clamp(1rem, 2.6vw, 1.3rem);
+        text-align: center;
+    }
+    .hero-buttons {
+        justify-content: center;
+    }
+    .hero-art {
+        justify-self: center;
+        width: min(66vw, 400px);
+        margin-top: 4rem;
+        transform: translateX(-12%);
+    }
+    /* Box */
+    .sobre-box {
+        min-height: 0;
+        width: min(380px, 100%);
+    }
+}
+
+/* ---------- Mobile ---------- */
+@media (max-width: 600px) {
+    /* Header */
+    header {
+        padding: 0.7rem 1rem;
+    }
+    .logo {
+        font-size: 1.7rem;
+    }
+    .btnLogin-popup {
+        padding: 8px 18px;
+        font-size: 0.9rem;
+    }
+    /* Hero */
+    .hero {
+        padding-top: 6.5rem;
+    }
+    .hero-buttons {
+        gap: 0.8rem;
+    }
+    .btn-inscricao,
+    .btn-saiba {
+        font-size: 1rem;
+        padding: 0.95rem 1.7rem;
+    }
+    /* Box */
+    .box {
+        gap: 20px;
+        padding: 40px 16px;
+    }
+    .sobre-box {
+        width: 100%;
+        max-width: 350px;
+        border-radius: 26px;
+    }
+    .title {
+        font-size: 1.4rem;
+    }
+    .text-box {
+        font-size: 1rem;
+    }
+    footer div p {
+        padding: 1rem 0;
+    }
 }
