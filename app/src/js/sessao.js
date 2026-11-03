@@ -37,4 +37,25 @@ function atualizarHeader() {
   area.replaceChildren(nome, botaoSair);
 }
 
+// ---------- Ferramenta de testes (rodar pelo console, em qualquer página) ----------
+// limparDadosDeTeste()                 -> apaga a sessão e todos os cadastros
+// limparDadosDeTeste('seu@email.com')  -> apaga só esse usuário e a sessão
+function limparDadosDeTeste(email) {
+  localStorage.removeItem(CHAVE_SESSAO);
+
+  if (email) {
+    let lista = [];
+    try {
+      lista = JSON.parse(localStorage.getItem('usuarios')) || [];
+    } catch {}
+    const alvo = String(email).trim().toLowerCase();
+    const restantes = lista.filter((u) => u.email !== alvo);
+    localStorage.setItem('usuarios', JSON.stringify(restantes));
+  } else {
+    localStorage.removeItem('usuarios');
+  }
+
+  window.location.reload();
+}
+
 atualizarHeader();
