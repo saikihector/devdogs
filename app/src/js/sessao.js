@@ -59,3 +59,4 @@ function limparDadosDeTeste(email) {
 }
 
 atualizarHeader();
+

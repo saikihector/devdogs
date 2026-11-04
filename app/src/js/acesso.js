@@ -156,7 +156,11 @@ loginForm.addEventListener('submit', async (e) => {
     if (data.success) {
       // Guarda só id e nome — nunca senha nem CPF
       localStorage.setItem('usuarioLogado', JSON.stringify(data.usuario));
-      window.location.href = './index.html';
+
+      // Volta para a página que o usuário tentou abrir (ex.: avaliacao.html)
+      const destino = sessionStorage.getItem('voltarPara') || 'index.html';
+      sessionStorage.removeItem('voltarPara');
+      window.location.href = destino;
     } else {
       alert(data.error);
     }
