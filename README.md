@@ -17,30 +17,41 @@ O site também conta com certificado ao completar a avaliação e obter um resul
 ## Funcionalidades
 
 - Animações de scroll
-- Seções: Hero, Metrics, Sobre, Footer
+- Seções: Hero, Sobre, Footer
 - Formulário para criar conta, entrar na conta e recriar senha esquecida.
+- Obrigatoriedade de login para realizar a avaliação.
 
 ## Estrutura
 
 ```
 app/
-├── index.html
-├── tema.html
 ├── acesso.html
+├── avaliacao.html
+├── certificados.html
 ├── esqueci-senha.html
+├── index.html
+├── questao.html
+├── resultado.html
+├── tema.html
 ├── src/
      ├── css/
-          ├──
-          ├── index.css
-          ├── tema.css
           ├── acesso.css
-          └── esqueci-senha.css
+          ├── avaliacao.css
+          ├── certificados.css
+          ├── esqueci-senha.css
+          ├── index.css
+          ├── questao.css
+          ├── resultado.css
+          └── tema.css
      ├── js/
-          ├── index.js
-          ├── tema.js
           ├── acesso.js
-          ├── sessao.js
-          └── esqueci-senha.js
+          ├── avaliacao.js
+          ├── certificados.js
+          ├── esqueci-senha.js
+          ├── index.js
+          ├── questao.js
+          ├── resultado.js
+          └── tema.js
      ├── images/
           ├── icons/
                ├── arrow-icon.svg
@@ -49,16 +60,21 @@ app/
                ├── mail-icon.svg
                └── lock-icon.svg
           ├── logo/
-               ├── dogschool-logo-no-background
+               ├── dogschool-logo-no-background.png
                └── dogschool-logo.svg
           ├── objetos/
                ├── circulo.svg
                └── pontos.svg
+
+bd/
+├── db-dogschool-backup.sql
 ```
 
 ## Rodando localmente
 
 Não há dependências — basta abrir o `index.html` no navegador, ou usar uma extensão tipo Live Server no VS Code.
+
+O database ainda não foi integrado ao sistema do site.
 
 ## Rodando online
 
