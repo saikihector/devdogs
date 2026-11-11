@@ -1,5 +1,13 @@
+@font-face {
+    font-family: 'Plus Jakarta Sans';
+    font-style: normal;
+    font-weight: 800;
+    font-display: swap;
+    src: url('/src/fonts/files/PlusJakartaSans-Variable-latin.woff') format('woff');
+}
+
 :root {
-    --cor-primaria: #3A66FF;
+    --color-primary: #0038FA;
     --cor-secundaria: #762BEB;
     --cor-fundo: #F4F6FF;
     --cor-superficie: #FFFFFF;

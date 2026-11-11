@@ -1,3 +1,11 @@
+@font-face {
+    font-family: 'Plus Jakarta Sans';
+    font-style: normal;
+    font-weight: 800;
+    font-display: swap;
+    src: url('/src/fonts/files/PlusJakartaSans-Variable-latin.woff') format('woff');
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -8,7 +16,7 @@
 }
 
 :root {
-    --color-primary: #3A66FF;
+    --color-primary: #0038FA;
     --color-secondary: #7A33CC;
     --color-background: #F5F7FC;
     --color-surface: #FFFFFF;
@@ -214,22 +222,16 @@ button.btnLogin-popup {
     font-size: 1.4rem;
 }
 
-/* ---------- Linha e rodapé ---------- */
-.hr-1 {
-    min-width: 100rem;
-    opacity: 55%;
-}
-
 footer {
     color: var(--color-text);
     max-height: 400px;
-    height: 100%;
     width: 100%;
     margin: 0 auto;
     text-align: center;
     padding: 2.5em 0;
     box-sizing: border-box;
     position: relative;
+    border-top: solid 1px var(--color-secondary);
 }
 
 /* ---------- Hambúrguer (ainda sem função) ---------- */
@@ -247,7 +249,7 @@ footer {
     display: block;
     width: 30px;
     height: 3px;
-    background: var(--color-primary);
+    background: var(--color-text);
     border-radius: 3px;
     transition: 0.3s;
 }
@@ -312,9 +314,7 @@ footer {
 
     /* Footer */
     footer p {
-        color: var(--color-text);
         padding: 0;
-        opacity: 0.25;
     }
 }
 
@@ -425,7 +425,7 @@ footer {
 
     /* Estudo */
     .estudo {
-        padding: 5em 1.5em 3em;
+        padding: 25% 1.5em 3em;
     }
     .seta {
         width: 8px;
@@ -436,5 +436,11 @@ footer {
     }
     .texto-explicativo p {
         font-size: 1rem;
+    }
+    /* Footer */
+    footer {
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 }
