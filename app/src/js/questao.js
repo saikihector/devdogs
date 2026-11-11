@@ -14,7 +14,7 @@ const alternativas = [
 ];
 
 /* ---------- Cronômetro ---------- */
-const TEMPO_TOTAL = 150; // segundos por questão
+const TEMPO_TOTAL = 5; // segundos por questão
 let tempoRestante = TEMPO_TOTAL;
 let encerrada = false;   // true quando a questão já foi confirmada ou o tempo acabou
 
@@ -34,16 +34,22 @@ const cronometro = setInterval(() => {
 function tempoEsgotado() {
     encerrada = true;
 
+    const alternativaCorreta = document.getElementById("alternativa-b");
+    alternativaCorreta.classList.add("main__alternativa_certo"); // Mostra a certa
+
     // A questão é considerada incorreta automaticamente (regra da avaliação).
     // Quando você tiver o armazenamento das respostas, registre aqui.
+    /* Aguarda 5 segundos (5000 milissegundos) com feedback visual antes de abrir a tela de Pausa/Continuar */
+    setTimeout(() => {
+        limiteTempo.classList.remove("limite__tempo_div_off");
+        limiteTempo.classList.add("limite__tempo_div");
+        header.classList.remove("header");
+        header.classList.add("header__off");
+        main.classList.add("desfoque");
+        btn.classList.remove("main__botao");
+        btn.classList.add("main__botao_off");
+    }, 5000); 
 
-    limiteTempo.classList.remove("limite__tempo_div_off");
-    limiteTempo.classList.add("limite__tempo_div");
-    header.classList.remove("header");
-    header.classList.add("header__off");
-    main.classList.add("desfoque");
-    btn.classList.remove("main__botao");
-    btn.classList.add("main__botao_off");
 }
 
 /* ---------- Selecionar alternativa ---------- */
@@ -89,7 +95,7 @@ btn.addEventListener("click", () => {
     }
   }
 
-  /* Aguarda 6,5 segundos (6500 milissegundos) com feedback visual antes de abrir a tela de Pausa/Continuar */
+  /* Aguarda 5 segundos (5000 milissegundos) com feedback visual antes de abrir a tela de Pausa/Continuar */
   setTimeout(() => {
     contPausa.classList.remove("continuar__pausar_div_off");
     contPausa.classList.add("continuar__pausar_div");
@@ -98,7 +104,7 @@ btn.addEventListener("click", () => {
     main.classList.add("desfoque");
     btn.classList.remove("main__botao");
     btn.classList.add("main__botao_off");
-  }, 6500); 
+  }, 5000); 
 });
 
 
