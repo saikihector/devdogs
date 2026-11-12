@@ -1,0 +1,27 @@
+1- De acordo com o texto, qual é a principal proposta do Scrum para lidar com a impossibilidade de prever tudo no início de um projeto? Alternativa correta: B
+
+A) Utilizar um manual rígido de regras para evitar desvios no plano original.
+B) Trabalhar em ciclos curtos, avaliar os resultados e ajustar a rota continuamente.
+C) Planejar detalhadamente cada etapa antes de mostrar o produto ao usuário.
+D) Adotar uma lista fixa de ferramentas obrigatórias para acelerar o desenvolvimento.
+
+2- O que sustenta e permite o funcionamento real dos três pilares do Scrum (transparência, inspeção e adaptação) no ambiente de trabalho? Alternativa correta: C
+
+A) O uso obrigatório de ferramentas rígidas de controle de tarefas.
+B) A punição imediata de qualquer falha cometida pela equipe.
+C) Os valores do Scrum, que constroem um ambiente baseado na confiança.
+D) A documentação detalhada de todos os erros e acertos em relatórios.
+
+3- Dentro de uma Equipe Scrum, como se divide a responsabilidade pelo resultado final do produto? Alternativa correta: C
+
+A) É exclusiva do Product Owner, pois ele gerencia o Product Backlog.
+B) É centralizada no Scrum Master, que atua como o chefe que dita as tarefas.
+C) É compartilhada em conjunto por toda a equipe, pois não existe hierarquia interna.
+D) É repassada apenas aos Developers, já que eles criam a parte funcional.
+
+4- Dentro da dinâmica do Scrum, qual evento serve para o time se alinhar diariamente em uma conversa rápida de quinze minutos? Alternativa correta: C
+
+A) O Planejamento da Sprint.
+B) A Retrospectiva da Sprint.
+C) A Reunião Diária (Daily Scrum).
+D) A Revisão da Sprint (Sprint Review).

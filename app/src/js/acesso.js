@@ -12,6 +12,36 @@ const loginBtn = document.getElementById('login');
 registerBtn.addEventListener('click', () => container.classList.add('active'));
 loginBtn.addEventListener('click', () => container.classList.remove('active'));
 
+// ---------- Controle Visual de Erros em Todos os Forms ----------
+function mostrarErro(input, mensagem) {
+  if (!input) return;
+  // Salva o placeholder original caso ainda não tenha sido salvo
+  if (!input.dataset.placeholderOriginal) {
+    input.dataset.placeholderOriginal = input.placeholder;
+  }
+  input.value = ''; // Limpa o campo para o erro aparecer no placeholder
+  input.placeholder = mensagem;
+  input.classList.add('input-erro');
+}
+
+function limparErro(input) {
+  if (!input) return;
+  input.classList.remove('input-erro');
+  if (input.dataset.placeholderOriginal) {
+    input.placeholder = input.dataset.placeholderOriginal;
+  }
+}
+
+// Aplica limpeza automática de erro ao digitar e desativa balões padrão em TODOS os forms
+document.querySelectorAll('form').forEach((form) => {
+  form.setAttribute('novalidate', true);
+
+  form.querySelectorAll('input').forEach((input) => {
+    input.dataset.placeholderOriginal = input.placeholder;
+    input.addEventListener('input', () => limparErro(input));
+  });
+});
+
 // ---------- Utilidades ----------
 const apenasDigitos = (txt) => txt.replace(/\D/g, '');
 
@@ -29,9 +59,6 @@ function cpfValido(cpf) {
   return true;
 }
 
-// Guarda um hash da senha (SHA-256) em vez da senha em texto puro.
-// Isso é só um quebra-galho para testes: no back-end de verdade usar
-// bcrypt ou argon2 com salt, de preferencia o bcrypt.
 async function hashSenha(senha) {
   const bytes = new TextEncoder().encode(senha);
   const buffer = await crypto.subtle.digest('SHA-256', bytes);
@@ -63,11 +90,12 @@ function salvarUsuarios(lista) {
 async function cadastrarUsuario({ nome, email, cpf, senha }) {
   const usuarios = lerUsuarios();
 
+  // Retornamos também o 'campo' para saber qual input pintar de vermelho
   if (usuarios.some((u) => u.cpf === cpf)) {
-    return { success: false, error: 'Este CPF já está cadastrado.' };
+    return { success: false, campo: 'cpf', error: 'Este CPF já está cadastrado!' };
   }
   if (usuarios.some((u) => u.email === email)) {
-    return { success: false, error: 'Este e-mail já está cadastrado.' };
+    return { success: false, campo: 'email', error: 'Este e-mail já está cadastrado!' };
   }
 
   usuarios.push({
@@ -86,7 +114,7 @@ async function autenticarUsuario({ cpf, senha }) {
   const usuario = lerUsuarios().find((u) => u.cpf === cpf);
 
   if (!usuario || usuario.senhaHash !== (await hashSenha(senha))) {
-    return { success: false, error: 'CPF ou senha incorretos.' };
+    return { success: false, error: 'CPF ou senha incorretos!' };
   }
 
   return {
@@ -110,14 +138,29 @@ signupForm.addEventListener('submit', async (e) => {
   const cpf = apenasDigitos(signupForm.cpf.value);
   const senha = signupForm.senha.value;
 
+  let temErro = false;
+
+  if (!nome) {
+    mostrarErro(signupForm.nome, 'O nome é obrigatório!');
+    temErro = true;
+  }
+
+  if (!email || !email.includes('@')) {
+    mostrarErro(signupForm.email, 'Digite um e-mail válido!');
+    temErro = true;
+  }
+
   if (!cpfValido(cpf)) {
-    alert('CPF inválido!');
-    return;
+    mostrarErro(signupForm.cpf, 'CPF inválido!');
+    temErro = true;
   }
+
   if (senha.length < 6) {
-    alert('A senha deve ter no mínimo 6 caracteres!');
-    return;
+    mostrarErro(signupForm.senha, 'Mínimo de 6 caracteres!');
+    temErro = true;
   }
+
+  if (temErro) return;
 
   const submitBtn = signupForm.querySelector('button[type="submit"]');
   setCarregando(submitBtn, true, 'Cadastrar', 'Cadastrando...');
@@ -130,7 +173,8 @@ signupForm.addEventListener('submit', async (e) => {
       signupForm.reset();
       container.classList.remove('active');
     } else {
-      alert(data.error);
+      // Mostra o erro exatamente no input que deu conflito (cpf ou email)
+      mostrarErro(signupForm[data.campo], data.error);
     }
   } catch (error) {
     alert('Ocorreu um erro. Tente novamente.');
@@ -147,6 +191,20 @@ loginForm.addEventListener('submit', async (e) => {
   const cpf = apenasDigitos(loginForm.cpf.value);
   const senha = loginForm.senha.value;
 
+  let temErro = false;
+
+  if (!cpf) {
+    mostrarErro(loginForm.cpf, 'Digite seu CPF!');
+    temErro = true;
+  }
+
+  if (!senha) {
+    mostrarErro(loginForm.senha, 'Digite sua senha!');
+    temErro = true;
+  }
+
+  if (temErro) return;
+
   const submitBtn = loginForm.querySelector('button[type="submit"]');
   setCarregando(submitBtn, true, 'Entrar', 'Entrando...');
 
@@ -154,15 +212,14 @@ loginForm.addEventListener('submit', async (e) => {
     const data = await autenticarUsuario({ cpf, senha });
 
     if (data.success) {
-      // Guarda só id e nome — nunca senha nem CPF
       localStorage.setItem('usuarioLogado', JSON.stringify(data.usuario));
-
-      // Volta para a página que o usuário tentou abrir (ex.: avaliacao.html)
       const destino = sessionStorage.getItem('voltarPara') || 'index.html';
       sessionStorage.removeItem('voltarPara');
       window.location.href = destino;
     } else {
-      alert(data.error);
+      // Marca ambos os campos no login caso CPF ou senha estejam errados
+      mostrarErro(loginForm.cpf, data.error);
+      mostrarErro(loginForm.senha, data.error);
     }
   } catch (error) {
     alert('Ocorreu um erro. Tente novamente.');

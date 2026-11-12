@@ -1,0 +1,27 @@
+1- De acordo com o texto, o que os Artefatos do Scrum realmente representam? Alternativa correta: Letra B
+
+A) Documentos burocráticos usados apenas para prestar contas à diretoria.
+B) O trabalho ou valor gerado pela equipe, trazendo visibilidade total ao projeto.
+C) Relatórios secretos criados pelo gestor ao final de cada ano.
+D) Regras rígidas que impedem a equipe de mudar o plano do projeto.
+
+2- De acordo com o texto, qual é a principal diferença entre os compromissos do Product Backlog e do Sprint Backlog? Alternativa correta: Letra B
+
+A) O Product Backlog foca no curto prazo, enquanto o Sprint Backlog foca no longo prazo.
+B) O Product Backlog tem a Meta do Produto (longo prazo), e o Sprint Backlog tem a Meta da Sprint (ciclo curto).
+C) O Product Backlog é gerenciado pelos Developers, e o Sprint Backlog é criado pelo cliente.
+D) O Product Backlog nunca muda, enquanto o Sprint Backlog muda todos os anos.
+
+3- De acordo com o texto, qual é a função da Definição de Concluído (Definition of Done)? Alternativa correta: Letra A
+
+A) Servir como uma régua de qualidade para garantir que o trabalho está realmente finalizado e pronto para uso.
+B) Listar todas as tarefas futuras que ainda não começaram.
+C) Substituir o Incremento ao final de cada Sprint.
+D) Definir o orçamento total aprovado pelos diretores do projeto.
+
+
+4- De acordo com o texto, o que acontece quando os artefatos do Scrum funcionam como "radiadores de informação"? Alternativa correta: Letra C
+A) Apenas o CEO tem acesso ao andamento do projeto.
+B) O time precisa fazer relatórios escritos todos os dias para explicar o trabalho.
+C) Qualquer pessoa vê as prioridades e o progresso na hora, evitando reuniões longas de prestação de contas.
+D) As informações do projeto ficam escondidas até o final do ano.
