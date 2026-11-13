@@ -72,6 +72,85 @@ function setCarregando(botao, carregando, textoNormal, textoCarregando) {
   botao.textContent = carregando ? textoCarregando : textoNormal;
 }
 
+// ---------- Limite de tentativas de login ----------
+const MAX_TENTATIVAS = 3;
+const TEMPOS_BLOQUEIO = [30, 90, 180]; // segundos: 30s, 1m30s, 3m
+const CHAVE_TENTATIVAS = 'tentativasLogin';
+
+function lerTodasTentativas() {
+  try {
+    return JSON.parse(localStorage.getItem(CHAVE_TENTATIVAS)) || {};
+  } catch {
+    return {};
+  }
+}
+
+function lerTentativas(cpf) {
+  return lerTodasTentativas()[cpf] || { falhas: 0, bloqueios: 0, ate: 0 };
+}
+
+function salvarTentativas(cpf, dados) {
+  const todas = lerTodasTentativas();
+  todas[cpf] = dados;
+  localStorage.setItem(CHAVE_TENTATIVAS, JSON.stringify(todas));
+}
+
+function limparTentativas(cpf) {
+  const todas = lerTodasTentativas();
+  delete todas[cpf];
+  localStorage.setItem(CHAVE_TENTATIVAS, JSON.stringify(todas));
+}
+
+function segundosRestantes(cpf) {
+  return Math.max(0, Math.ceil((lerTentativas(cpf).ate - Date.now()) / 1000));
+}
+
+function formatarTempo(seg) {
+  const m = Math.floor(seg / 60);
+  const s = seg % 60;
+  return m > 0 ? `${m}m${String(s).padStart(2, '0')}s` : `${s}s`;
+}
+
+function registrarFalha(cpf) {
+  const d = lerTentativas(cpf);
+  d.falhas += 1;
+
+  if (d.falhas >= MAX_TENTATIVAS) {
+    const indice = Math.min(d.bloqueios, TEMPOS_BLOQUEIO.length - 1);
+    d.ate = Date.now() + TEMPOS_BLOQUEIO[indice] * 1000;
+    d.bloqueios += 1;
+    d.falhas = 0;
+  }
+
+  salvarTentativas(cpf, d);
+  return d;
+}
+
+let timerBloqueio = null;
+
+function iniciarContagem(cpf) {
+  const botao = loginForm.querySelector('button[type="submit"]');
+  clearInterval(timerBloqueio);
+
+  const atualizar = () => {
+    const resta = segundosRestantes(cpf);
+    if (resta <= 0) {
+      clearInterval(timerBloqueio);
+      botao.disabled = false;
+      botao.textContent = 'Entrar';
+      limparErro(loginForm.cpf);
+      limparErro(loginForm.senha);
+      return;
+    }
+    botao.disabled = true;
+    botao.textContent = `Aguarde ${formatarTempo(resta)}`;
+  };
+
+  atualizar();
+  timerBloqueio = setInterval(atualizar, 1000);
+}
+// ---------- FIM DO LIMITE DE TENTATIVAS ----------
+
 // ---------- ARMAZENAMENTO TEMPORÁRIO (substituir pelo back-end depois) ----------
 const CHAVE_USUARIOS = 'usuarios';
 
@@ -205,6 +284,14 @@ loginForm.addEventListener('submit', async (e) => {
 
   if (temErro) return;
 
+  // Já está bloqueado? Não conta como nova tentativa.
+  const resta = segundosRestantes(cpf);
+  if (resta > 0) {
+    mostrarErro(loginForm.senha, `Bloqueado! Aguarde ${formatarTempo(resta)}`);
+    iniciarContagem(cpf);
+    return;
+  }
+
   const submitBtn = loginForm.querySelector('button[type="submit"]');
   setCarregando(submitBtn, true, 'Entrar', 'Entrando...');
 
@@ -212,19 +299,32 @@ loginForm.addEventListener('submit', async (e) => {
     const data = await autenticarUsuario({ cpf, senha });
 
     if (data.success) {
+      limparTentativas(cpf);
       localStorage.setItem('usuarioLogado', JSON.stringify(data.usuario));
       const destino = sessionStorage.getItem('voltarPara') || 'index.html';
       sessionStorage.removeItem('voltarPara');
       window.location.href = destino;
     } else {
-      // Marca ambos os campos no login caso CPF ou senha estejam errados
-      mostrarErro(loginForm.cpf, data.error);
-      mostrarErro(loginForm.senha, data.error);
+      const dados = registrarFalha(cpf);
+      const bloqueio = segundosRestantes(cpf);
+
+      if (bloqueio > 0) {
+        mostrarErro(loginForm.cpf, 'Tentativas esgotadas!');
+        mostrarErro(loginForm.senha, `Aguarde ${formatarTempo(bloqueio)}`);
+        iniciarContagem(cpf);
+      } else {
+        const restantes = MAX_TENTATIVAS - dados.falhas;
+        mostrarErro(loginForm.cpf, data.error);
+        mostrarErro(loginForm.senha, `Restam ${restantes} tentativa(s)`);
+      }
     }
   } catch (error) {
     alert('Ocorreu um erro. Tente novamente.');
     console.error(error);
   } finally {
-    setCarregando(submitBtn, false, 'Entrar', 'Entrando...');
+    // Se entrou em bloqueio, a contagem regressiva controla o botão
+    if (segundosRestantes(cpf) === 0) {
+      setCarregando(submitBtn, false, 'Entrar', 'Entrando...');
+    }
   }
 });
