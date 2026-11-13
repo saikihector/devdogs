@@ -40,6 +40,20 @@ app/
                └── PlusJakartaSans-Variable-latin.woff
           ├── Plus_Jakarta_Sans/
                ├── static/
+                    ├── PlusJakartaSans-Bold.ttf
+                    ├── PlusJakartaSans-BoldItalic.ttf
+                    ├── PlusJakartaSans-ExtraBold.ttf
+                    ├── PlusJakartaSans-ExtraBoldItalic.ttf
+                    ├── PlusJakartaSans-ExtraLight.ttf
+                    ├── PlusJakartaSans-ExtraLightItalic.ttf
+                    ├── PlusJakartaSans-Italic.ttf
+                    ├── PlusJakartaSans-Light.ttf
+                    ├── PlusJakartaSans-LightItalic.ttf
+                    ├── PlusJakartaSans-Medium.ttf
+                    ├── PlusJakartaSans-MediumItalic.ttf
+                    ├── PlusJakartaSans-Regular.ttf
+                    ├── PlusJakartaSans-SemiBold.ttf
+                    └── PlusJakartaSans-SemiBoldItalic.ttf
                ├── OFL.txt
                ├── PlusJakartaSans-Italic-VariableFont_wght.ttf
                ├── PlusJakartaSans-VariableFont_wght.ttf
