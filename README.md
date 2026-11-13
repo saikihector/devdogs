@@ -34,6 +34,16 @@ app/
 ├── resultado.html
 ├── tema.html
 ├── src/
+     ├── fonts/
+          ├── files/
+               ├── OFL.txt
+               └── PlusJakartaSans-Variable-latin.woff
+          ├── Plus_Jakarta_Sans/
+               ├── static/
+               ├── OFL.txt
+               ├── PlusJakartaSans-Italic-VariableFont_wght.ttf
+               ├── PlusJakartaSans-VariableFont_wght.ttf
+               └── README.txt
      ├── css/
           ├── acesso.css
           ├── avaliacao.css
