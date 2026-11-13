@@ -153,6 +153,8 @@ function iniciarContagem(cpf) {
 
 // ---------- ARMAZENAMENTO TEMPORÁRIO (substituir pelo back-end depois) ----------
 const CHAVE_USUARIOS = 'usuarios';
+// Aumente esta versão sempre que os Termos/Política mudarem (LGPD: prova do aceite)
+const VERSAO_TERMOS = '1.0';
 
 function lerUsuarios() {
   try {
@@ -183,6 +185,8 @@ async function cadastrarUsuario({ nome, email, cpf, senha }) {
     email,
     cpf,
     senhaHash: await hashSenha(senha),
+    termosAceitosEm: new Date().toISOString(),
+    versaoTermos: VERSAO_TERMOS,
   });
   salvarUsuarios(usuarios);
 
@@ -236,6 +240,11 @@ signupForm.addEventListener('submit', async (e) => {
 
   if (senha.length < 6) {
     mostrarErro(signupForm.senha, 'Mínimo de 6 caracteres!');
+    temErro = true;
+  }
+
+  if (!signupForm.termos.checked) {
+    alert('Você precisa aceitar os Termos de Uso e a Política de Privacidade para continuar.');
     temErro = true;
   }
 
