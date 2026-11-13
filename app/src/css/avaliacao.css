@@ -18,19 +18,14 @@
 
 :root {
 --color-primary: #0038FA;
-    --color-secondary: #7A33CC;
-    --color-background: #F5F7FC;
-    --color-surface: #FFFFFF;
-    --color-text: #18233D;
-    --color-success: #16804A;
-    --color-error: #C53D47;
-    --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    --light: 300;
-    --regular: 400;
-    --medium: 500;
-    --semi-bold: 600;
-    --bold: 700;
-    --bolder: 900;
+--color-secondary: #7A33CC;
+--color-background: #F5F7FC;
+--color-surface: #FFFFFF;
+--color-text: #18233D;
+--color-text-other: #F5F7FC;
+--color-success: #16804A;
+--color-error: #C53D47;
+--transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 body {
@@ -191,13 +186,13 @@ button.btnLogin-popup {
 
 /* Sub-Titulo */
 .sub_titulo {
+    cursor: default;
     display: flex;
     justify-content: center;
     margin: 2rem 0;
 }
 
 .sub_titulo h2 {
-    background-color: var(--color-surface);
     color: var(--color-text);
     font-size: 2.2rem;
     padding: 1rem;
@@ -245,19 +240,21 @@ button.btnLogin-popup {
 }
 
 .btn__avaliacao {
-    background-color: var(--color-success);
-    color: var(--color-surface);
+    background: transparent;
+    color: var(--color-text);
     font-weight: var(--medium);
     font-size: 1.875rem;
     text-decoration: none;
     padding: 1.4rem 0.8rem;
-    border: solid 2px var(--color-text);
+    border: solid 2px var(--color-secondary);
     border-radius: 50px;
     transition: all 0.4s ease;
 }
 
 .btn__avaliacao:hover {
-    opacity: 0.8;
+    
+    background-color: var(--color-secondary);
+    color: var(--color-text);
 }
 
 @media (max-width: 1280px) {

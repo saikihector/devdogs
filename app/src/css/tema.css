@@ -222,6 +222,13 @@ button.btnLogin-popup {
     font-size: 1.4rem;
 }
 
+.texto-explicativo img {
+    width: 100%;
+    margin-top: 1rem;
+    margin-bottom: 1.5rem;
+    border-radius: 2rem;
+}
+
 footer {
     color: var(--color-text);
     max-height: 400px;
@@ -311,6 +318,9 @@ footer {
     .texto-explicativo p {
         font-size: 1.3rem;
     }
+    .texto-explicativo img {
+        border-radius: 1.6rem;
+    }
 
     /* Footer */
     footer p {
@@ -381,6 +391,9 @@ footer {
     .texto-explicativo p {
         font-size: 1.2rem;
     }
+    .texto-explicativo img {
+        border-radius: 1.4rem;
+    }
 }
 
 /* ---------- Mobile ---------- */
@@ -436,6 +449,9 @@ footer {
     }
     .texto-explicativo p {
         font-size: 1rem;
+    }
+    .texto-explicativo img {
+        border-radius: 0.8rem;
     }
     /* Footer */
     footer {
