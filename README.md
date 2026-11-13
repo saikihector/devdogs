@@ -30,9 +30,11 @@ app/
 ├── certificados.html
 ├── esqueci-senha.html
 ├── index.html
+├── privacidade.html
 ├── questao.html
 ├── resultado.html
 ├── tema.html
+├── termos.html
 ├── src/
      ├── fonts/
           ├── files/
