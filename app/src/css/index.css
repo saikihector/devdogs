@@ -22,6 +22,7 @@
 --color-background: #F5F7FC;
 --color-surface: #FFFFFF;
 --color-text: #18233D;
+--color-border: #060a13;
 --color-text-other: #F5F7FC;
 --color-success: #16804A;
 --color-error: #C53D47;
@@ -128,6 +129,7 @@ header.scrolled {
 .btnLogin-popup:hover {
     background: var(--color-secondary);
     color: var(--color-text);
+    border: 2px solid var(--color-text);
 }
 
 .login-container { 
@@ -169,6 +171,7 @@ button.btnLogin-popup {
 .hero-content {
     grid-area: texto;
     align-self: end;
+    cursor: default;
 }
 
 .hero-content h1 {
@@ -325,6 +328,7 @@ button.btnLogin-popup {
     gap: 40px;
     padding: 60px 20px;
     background: var(--color-background);
+    cursor: default;
 }
 
 .sobre-box {
