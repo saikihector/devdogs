@@ -97,6 +97,7 @@ bd/
 ```
 
 [![Architecture diagram of saikihector/devdogs](https://gitdiagram.com/saikihector/devdogs/diagram.png)](https://gitdiagram.com/saikihector/devdogs?utm_source=readme&utm_medium=picture)
+[![Architecture diagram](https://gitdiagram.com/diagram-badge.svg)](https://gitdiagram.com/saikihector/devdogs?utm_source=readme&utm_medium=badge)
 
 ## Rodando localmente
 
