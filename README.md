@@ -96,6 +96,8 @@ bd/
 ├── db-dogschool-backup.sql
 ```
 
+[![Architecture diagram of saikihector/devdogs](https://gitdiagram.com/saikihector/devdogs/diagram.png)](https://gitdiagram.com/saikihector/devdogs?utm_source=readme&utm_medium=picture)
+
 ## Rodando localmente
 
 Não há dependências — basta abrir o `index.html` no navegador, ou usar uma extensão tipo Live Server no VS Code.
